@@ -26,10 +26,10 @@
       "item": "industrialforegoing:processing_addon_tier_1"
     },
     {
-      "item": "minecraft:furnace"
+      "tag": "c:player_workstations/furnaces"
     },
     {
-      "item": "minecraft:crafting_table"
+      "tag": "c:player_workstations/crafting_tables"
     }
   ],
   "inputFluid": {

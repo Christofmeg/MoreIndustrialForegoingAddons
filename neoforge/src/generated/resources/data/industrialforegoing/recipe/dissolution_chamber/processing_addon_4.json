@@ -8,37 +8,37 @@
   "type": "industrialforegoing:dissolution_chamber",
   "input": [
     {
-      "tag": "c:dusts/redstone"
-    },
-    {
-      "tag": "c:dusts/redstone"
-    },
-    {
-      "tag": "c:glass_panes/colorless"
-    },
-    {
-      "tag": "c:glass_panes/colorless"
+      "item": "minecraft:sculk"
     },
     {
       "item": "minecraft:echo_shard"
     },
     {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:glass_panes/colorless"
+    },
+    {
+      "tag": "c:gears/netherite"
+    },
+    {
       "item": "mifa:processing_addon_3"
     },
     {
-      "item": "minecraft:furnace"
+      "tag": "c:player_workstations/furnaces"
     },
     {
-      "item": "minecraft:crafting_table"
+      "tag": "c:player_workstations/crafting_tables"
     }
   ],
   "inputFluid": {
-    "amount": 1000,
-    "id": "industrialforegoing:ether_gas"
+    "amount": 4000,
+    "id": "industrialforegoing:essence"
   },
   "output": {
     "count": 1,
     "id": "mifa:processing_addon_4"
   },
-  "processingTime": 200
+  "processingTime": 800
 }

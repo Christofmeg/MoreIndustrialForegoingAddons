@@ -2,7 +2,7 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "mifa:efficiency_addon_4"
+      "item": "mifa:speed_addon_4"
     }
   ],
   "type": "industrialforegoing:dissolution_chamber",
@@ -23,13 +23,13 @@
       "tag": "c:gears/netherite"
     },
     {
-      "item": "mifa:efficiency_addon_3"
+      "item": "mifa:speed_addon_3"
     },
     {
-      "tag": "c:rods/blaze"
+      "item": "minecraft:sugar"
     },
     {
-      "tag": "c:rods/blaze"
+      "item": "minecraft:sugar"
     }
   ],
   "inputFluid": {
@@ -38,7 +38,7 @@
   },
   "output": {
     "count": 1,
-    "id": "mifa:efficiency_addon_4"
+    "id": "mifa:speed_addon_4"
   },
   "processingTime": 800
 }

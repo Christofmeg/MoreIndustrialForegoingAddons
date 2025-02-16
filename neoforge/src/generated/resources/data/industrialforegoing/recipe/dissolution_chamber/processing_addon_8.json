@@ -2,43 +2,43 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "mifa:speed_addon_4"
+      "item": "mifa:processing_addon_8"
     }
   ],
   "type": "industrialforegoing:dissolution_chamber",
   "input": [
     {
-      "tag": "c:dusts/redstone"
+      "item": "minecraft:dragon_head"
     },
     {
-      "tag": "c:dusts/redstone"
-    },
-    {
-      "tag": "c:glass_panes/colorless"
+      "item": "minecraft:dragon_breath"
     },
     {
       "tag": "c:glass_panes/colorless"
     },
     {
-      "item": "minecraft:echo_shard"
+      "tag": "c:glass_panes/colorless"
     },
     {
-      "item": "mifa:speed_addon_3"
+      "tag": "c:gears/netherite"
     },
     {
-      "item": "minecraft:sugar"
+      "item": "mifa:processing_addon_7"
     },
     {
-      "item": "minecraft:sugar"
+      "tag": "c:player_workstations/furnaces"
+    },
+    {
+      "tag": "c:player_workstations/crafting_tables"
     }
   ],
   "inputFluid": {
-    "amount": 1000,
+    "amount": 8000,
     "id": "industrialforegoing:ether_gas"
   },
   "output": {
     "count": 1,
-    "id": "mifa:speed_addon_4"
+    "id": "mifa:processing_addon_8"
   },
-  "processingTime": 200
+  "processingTime": 1600
 }

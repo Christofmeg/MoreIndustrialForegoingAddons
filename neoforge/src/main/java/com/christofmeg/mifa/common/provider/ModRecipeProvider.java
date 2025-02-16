@@ -47,6 +47,10 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
                         Optional.of(new ItemStack(ModuleCore.EFFICIENCY_ADDON_2.get())), Optional.empty()));
         ((IRecipeProvider) ItemRegistry.EFFICIENCY_ADDON_3.get()).registerRecipe(recipeOutput);
         ((IRecipeProvider) ItemRegistry.EFFICIENCY_ADDON_4.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.EFFICIENCY_ADDON_5.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.EFFICIENCY_ADDON_6.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.EFFICIENCY_ADDON_7.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.EFFICIENCY_ADDON_8.get()).registerRecipe(recipeOutput);
 
         DissolutionChamberRecipe.createRecipe(recipeOutput, BuiltInRegistries.ITEM.getKey(ModuleCore.PROCESSING_ADDON_2.get()).toShortLanguageKey(),
                 new DissolutionChamberRecipe(List.of(
@@ -56,13 +60,17 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
                         Ingredient.of(Tags.Items.GLASS_PANES_COLORLESS),
                         Ingredient.of(IndustrialTags.Items.GEAR_DIAMOND),
                         Ingredient.of(new ItemStack(ModuleCore.PROCESSING_ADDON_1.get())),
-                        Ingredient.of(Items.FURNACE.getDefaultInstance()),
-                        Ingredient.of(Items.CRAFTING_TABLE.getDefaultInstance())
+                        Ingredient.of(Tags.Items.PLAYER_WORKSTATIONS_FURNACES),
+                        Ingredient.of(Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES)
                 ),
                         new FluidStack(ModuleCore.LATEX.getSourceFluid().get(), 1000), 200,
                         Optional.of(new ItemStack(ModuleCore.PROCESSING_ADDON_2.get())), Optional.empty()));
         ((IRecipeProvider) ItemRegistry.PROCESSING_ADDON_3.get()).registerRecipe(recipeOutput);
         ((IRecipeProvider) ItemRegistry.PROCESSING_ADDON_4.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.PROCESSING_ADDON_5.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.PROCESSING_ADDON_6.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.PROCESSING_ADDON_7.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.PROCESSING_ADDON_8.get()).registerRecipe(recipeOutput);
 
         DissolutionChamberRecipe.createRecipe(recipeOutput, BuiltInRegistries.ITEM.getKey(ModuleCore.SPEED_ADDON_2.get()).toShortLanguageKey(),
                 new DissolutionChamberRecipe(List.of(
@@ -72,13 +80,17 @@ public class ModRecipeProvider extends VanillaRecipeProvider {
                         Ingredient.of(Tags.Items.GLASS_PANES_COLORLESS),
                         Ingredient.of(IndustrialTags.Items.GEAR_DIAMOND),
                         Ingredient.of(new ItemStack(ModuleCore.SPEED_ADDON_1.get())),
-                        Ingredient.of(new ItemStack(Items.SUGAR)),
-                        Ingredient.of(new ItemStack(Items.SUGAR))
+                        Ingredient.of(Items.SUGAR),
+                        Ingredient.of(Items.SUGAR)
                 ),
                         new FluidStack(ModuleCore.LATEX.getSourceFluid().get(), 1000), 200,
                         Optional.of(new ItemStack(ModuleCore.SPEED_ADDON_2.get())), Optional.empty()));
         ((IRecipeProvider) ItemRegistry.SPEED_ADDON_3.get()).registerRecipe(recipeOutput);
         ((IRecipeProvider) ItemRegistry.SPEED_ADDON_4.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.SPEED_ADDON_5.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.SPEED_ADDON_6.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.SPEED_ADDON_7.get()).registerRecipe(recipeOutput);
+        ((IRecipeProvider) ItemRegistry.SPEED_ADDON_8.get()).registerRecipe(recipeOutput);
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),

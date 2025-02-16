@@ -2,16 +2,16 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "mifa:efficiency_addon_4"
+      "item": "mifa:processing_addon_7"
     }
   ],
   "type": "industrialforegoing:dissolution_chamber",
   "input": [
     {
-      "item": "minecraft:sculk"
+      "item": "minecraft:beacon"
     },
     {
-      "item": "minecraft:echo_shard"
+      "tag": "c:nether_stars"
     },
     {
       "tag": "c:glass_panes/colorless"
@@ -23,22 +23,22 @@
       "tag": "c:gears/netherite"
     },
     {
-      "item": "mifa:efficiency_addon_3"
+      "item": "mifa:processing_addon_6"
     },
     {
-      "tag": "c:rods/blaze"
+      "tag": "c:player_workstations/furnaces"
     },
     {
-      "tag": "c:rods/blaze"
+      "tag": "c:player_workstations/crafting_tables"
     }
   ],
   "inputFluid": {
-    "amount": 4000,
-    "id": "industrialforegoing:essence"
+    "amount": 7000,
+    "id": "industrialforegoing:ether_gas"
   },
   "output": {
     "count": 1,
-    "id": "mifa:efficiency_addon_4"
+    "id": "mifa:processing_addon_7"
   },
-  "processingTime": 800
+  "processingTime": 1400
 }

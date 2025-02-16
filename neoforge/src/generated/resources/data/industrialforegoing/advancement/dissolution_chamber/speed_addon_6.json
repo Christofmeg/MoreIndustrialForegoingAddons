@@ -2,14 +2,14 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "mifa:speed_addon_4"
+      "item": "mifa:speed_addon_6"
     }
   ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "industrialforegoing:dissolution_chamber/speed_addon_tier_4"
+        "recipe": "industrialforegoing:dissolution_chamber/speed_addon_6"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,7 +21,7 @@
   ],
   "rewards": {
     "recipes": [
-      "industrialforegoing:dissolution_chamber/speed_addon_tier_4"
+      "industrialforegoing:dissolution_chamber/speed_addon_6"
     ]
   }
 }

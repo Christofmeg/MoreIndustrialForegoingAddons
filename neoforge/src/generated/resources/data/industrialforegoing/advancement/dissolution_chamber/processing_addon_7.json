@@ -2,14 +2,14 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "mifa:speed_addon_3"
+      "item": "mifa:processing_addon_7"
     }
   ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "industrialforegoing:dissolution_chamber/speed_addon_tier_3"
+        "recipe": "industrialforegoing:dissolution_chamber/processing_addon_7"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,7 +21,7 @@
   ],
   "rewards": {
     "recipes": [
-      "industrialforegoing:dissolution_chamber/speed_addon_tier_3"
+      "industrialforegoing:dissolution_chamber/processing_addon_7"
     ]
   }
 }

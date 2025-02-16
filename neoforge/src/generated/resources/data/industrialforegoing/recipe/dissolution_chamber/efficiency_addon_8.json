@@ -2,16 +2,16 @@
   "neoforge:conditions": [
     {
       "type": "neoforge:item_exists",
-      "item": "mifa:efficiency_addon_4"
+      "item": "mifa:efficiency_addon_8"
     }
   ],
   "type": "industrialforegoing:dissolution_chamber",
   "input": [
     {
-      "item": "minecraft:sculk"
+      "item": "minecraft:dragon_head"
     },
     {
-      "item": "minecraft:echo_shard"
+      "item": "minecraft:dragon_breath"
     },
     {
       "tag": "c:glass_panes/colorless"
@@ -23,7 +23,7 @@
       "tag": "c:gears/netherite"
     },
     {
-      "item": "mifa:efficiency_addon_3"
+      "item": "mifa:efficiency_addon_7"
     },
     {
       "tag": "c:rods/blaze"
@@ -33,12 +33,12 @@
     }
   ],
   "inputFluid": {
-    "amount": 4000,
-    "id": "industrialforegoing:essence"
+    "amount": 8000,
+    "id": "industrialforegoing:ether_gas"
   },
   "output": {
     "count": 1,
-    "id": "mifa:efficiency_addon_4"
+    "id": "mifa:efficiency_addon_8"
   },
-  "processingTime": 800
+  "processingTime": 1600
 }

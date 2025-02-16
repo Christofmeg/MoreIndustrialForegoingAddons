@@ -1,3 +1,4 @@
-1.1.1:
-* Update README.md and mods.toml
-* Fix typo in displayURL and issueTrackerURL
+2.0.0:
+* Balancing update
+* Reworked recipes for tier 3 and 4 addons
+* Added 4 new tiers to efficiency, processing and speed addons

@@ -22,12 +22,24 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(ItemRegistry.EFFICIENCY_ADDON_3.get());
         basicItem(ItemRegistry.EFFICIENCY_ADDON_4.get());
+        basicItem(ItemRegistry.EFFICIENCY_ADDON_5.get());
+        basicItem(ItemRegistry.EFFICIENCY_ADDON_6.get());
+        basicItem(ItemRegistry.EFFICIENCY_ADDON_7.get());
+        basicItem(ItemRegistry.EFFICIENCY_ADDON_8.get());
 
         basicItem(ItemRegistry.PROCESSING_ADDON_3.get());
         basicItem(ItemRegistry.PROCESSING_ADDON_4.get());
+        basicItem(ItemRegistry.PROCESSING_ADDON_5.get());
+        basicItem(ItemRegistry.PROCESSING_ADDON_6.get());
+        basicItem(ItemRegistry.PROCESSING_ADDON_7.get());
+        basicItem(ItemRegistry.PROCESSING_ADDON_8.get());
 
         basicItem(ItemRegistry.SPEED_ADDON_3.get());
         basicItem(ItemRegistry.SPEED_ADDON_4.get());
+        basicItem(ItemRegistry.SPEED_ADDON_5.get());
+        basicItem(ItemRegistry.SPEED_ADDON_6.get());
+        basicItem(ItemRegistry.SPEED_ADDON_7.get());
+        basicItem(ItemRegistry.SPEED_ADDON_8.get());
 
         basicItem(ItemRegistry.NETHERITE_GEAR.get());
     }
