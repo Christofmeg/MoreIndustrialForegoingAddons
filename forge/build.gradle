@@ -133,7 +133,7 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     "${forge_release_versions}".split(',').each {
         mainFile.addGameVersion("${it}")
     }
-    mainFile.addModLoader('Forge', 'NeoForge')
+    mainFile.addModLoader('Forge')
     mainFile.addRequirement("industrial-foregoing")
 }
 
@@ -144,14 +144,16 @@ modrinth {
     } else {
         token = ""
     }
-    projectId = "${modrinth_id}"
-    versionName = getArchivesBaseName() + "-" + getVersion()
-    versionType = "${release_type}"
+    projectId = modrinth_id
+    versionType = release_type
     changelog = file('changelog.md').text
-    uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
-    gameVersions = "${forge_release_versions}".split(",") as List<String>
+    gameVersions = forge_release_versions.split(",") as List<String>
+    loaders.add(project.name)
+    detectLoaders = false
+    versionName = "${archivesBaseName}-${version}"
+    uploadFile = layout.buildDirectory.file("libs/${archivesBaseName}-${version}.jar").get().asFile
+
     dependencies {
         required.project "industrial-foregoing"
     }
-    loaders = "forge,neoforge".split(",") as List<String>
 }
