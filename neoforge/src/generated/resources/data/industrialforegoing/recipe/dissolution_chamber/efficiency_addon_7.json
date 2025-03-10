@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 7000,
-    "id": "industrialforegoing:ether_gas"
+    "fluid": "industrialforegoing:ether_gas"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Efficiency": 0.3
+      }
+    },
     "count": 1,
     "id": "mifa:efficiency_addon_7"
   },

@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 3000,
-    "id": "industrialforegoing:pink_slime"
+    "fluid": "industrialforegoing:pink_slime"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Processing": 4.0
+      }
+    },
     "count": 1,
     "id": "mifa:processing_addon_3"
   },

@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 5000,
-    "id": "industrialforegoing:sludge"
+    "fluid": "industrialforegoing:sludge"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Efficiency": 0.5
+      }
+    },
     "count": 1,
     "id": "mifa:efficiency_addon_5"
   },

@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 4000,
-    "id": "industrialforegoing:essence"
+    "tag": "c:experience"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Efficiency": 0.6
+      }
+    },
     "count": 1,
     "id": "mifa:efficiency_addon_4"
   },

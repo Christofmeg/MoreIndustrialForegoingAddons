@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 4000,
-    "id": "industrialforegoing:essence"
+    "tag": "c:experience"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Speed": 5.0
+      }
+    },
     "count": 1,
     "id": "mifa:speed_addon_4"
   },

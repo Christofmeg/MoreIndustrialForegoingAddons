@@ -67,8 +67,8 @@ dependencies {
         }
     }
 
-    implementation "maven.modrinth:industrial-foregoing:1.21-3.6.15"
-    implementation "maven.modrinth:titanium:1.21-4.0.21"
+    implementation "maven.modrinth:industrial-foregoing:1.21-3.6.24"
+    implementation "maven.modrinth:titanium:1.21-4.0.34"
 
     runtimeOnly "maven.modrinth:tags-viewer:fWGdV2ND" // https://modrinth.com/mod/tags-viewer/versions
 }
@@ -105,6 +105,6 @@ modrinth {
     uploadFile = layout.buildDirectory.file("libs/${archivesBaseName}-${version}.jar").get().asFile
 
     dependencies {
-        required.project "industrial-foregoing"
+        required.version "aKL8me1V" //1.21-3.6.24
     }
 }

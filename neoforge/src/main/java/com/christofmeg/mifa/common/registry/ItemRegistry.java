@@ -4,6 +4,7 @@ import com.buuz135.industrial.item.RecipelessCustomItem;
 import com.buuz135.industrial.module.IModule;
 import com.buuz135.industrial.module.ModuleCore;
 import com.buuz135.industrial.recipe.DissolutionChamberRecipe;
+import com.buuz135.industrial.utils.IndustrialTags;
 import com.christofmeg.mifa.CommonConstants;
 import com.christofmeg.mifa.common.item.ModEfficiencyAddonItem;
 import com.christofmeg.mifa.common.item.ModProcessingAddonItem;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.crafting.SizedFluidIngredient;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.List;
@@ -86,7 +88,7 @@ public class ItemRegistry implements IModule {
                                 Ingredient.of(Tags.Items.RODS_BLAZE),
                                 Ingredient.of(Tags.Items.RODS_BLAZE)
                         ),
-                                new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(), 4000), 800,
+                                SizedFluidIngredient.of(IndustrialTags.Fluids.EXPERIENCE, 4000), 800,
                                 Optional.of(new ItemStack(this)), Optional.empty()));
             }
         });
@@ -195,7 +197,7 @@ public class ItemRegistry implements IModule {
                                 Ingredient.of(Tags.Items.PLAYER_WORKSTATIONS_FURNACES),
                                 Ingredient.of(Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES)
                         ),
-                                new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(), 4000), 800,
+                                SizedFluidIngredient.of(IndustrialTags.Fluids.EXPERIENCE, 4000), 800,
                                 Optional.of(new ItemStack(this)), Optional.empty()));
             }
         });
@@ -304,7 +306,7 @@ public class ItemRegistry implements IModule {
                                 Ingredient.of(Items.SUGAR),
                                 Ingredient.of(Items.SUGAR)
                         ),
-                                new FluidStack(ModuleCore.ESSENCE.getSourceFluid().get(), 4000), 800,
+                                SizedFluidIngredient.of(IndustrialTags.Fluids.EXPERIENCE, 4000), 800,
                                 Optional.of(new ItemStack(this)), Optional.empty()));
             }
         });

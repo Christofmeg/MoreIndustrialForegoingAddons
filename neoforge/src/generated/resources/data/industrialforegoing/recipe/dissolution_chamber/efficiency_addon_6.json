@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 6000,
-    "id": "industrialforegoing:biofuel"
+    "fluid": "industrialforegoing:biofuel"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Efficiency": 0.39999998
+      }
+    },
     "count": 1,
     "id": "mifa:efficiency_addon_6"
   },

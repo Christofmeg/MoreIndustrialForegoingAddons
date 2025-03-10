@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 6000,
-    "id": "industrialforegoing:biofuel"
+    "fluid": "industrialforegoing:biofuel"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Processing": 7.0
+      }
+    },
     "count": 1,
     "id": "mifa:processing_addon_6"
   },

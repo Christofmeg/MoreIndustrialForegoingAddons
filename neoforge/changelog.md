@@ -1,4 +1,4 @@
-2.0.0:
-* Balancing update
-* Reworked recipes for tier 3 and 4 addons
-* Added 4 new tiers to efficiency, processing and speed addons
+2.1.0:
+* Update minimum version to Industrial Foregoing 1.21-3.6.24
+* Use the fluid tag c:experienc instead of industrial foregoing essence in tier 4 addons.
+* Fixes [#5](https://github.com/Christofmeg/MoreIndustrialForegoingAddons/issues/5)

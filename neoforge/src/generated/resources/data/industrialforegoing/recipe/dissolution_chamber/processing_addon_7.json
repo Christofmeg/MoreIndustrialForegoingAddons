@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 7000,
-    "id": "industrialforegoing:ether_gas"
+    "fluid": "industrialforegoing:ether_gas"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Processing": 8.0
+      }
+    },
     "count": 1,
     "id": "mifa:processing_addon_7"
   },

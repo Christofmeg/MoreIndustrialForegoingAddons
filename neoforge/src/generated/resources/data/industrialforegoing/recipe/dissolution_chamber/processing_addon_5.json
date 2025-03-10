@@ -34,9 +34,14 @@
   ],
   "inputFluid": {
     "amount": 5000,
-    "id": "industrialforegoing:sludge"
+    "fluid": "industrialforegoing:sludge"
   },
   "output": {
+    "components": {
+      "titanium:augments": {
+        "Processing": 6.0
+      }
+    },
     "count": 1,
     "id": "mifa:processing_addon_5"
   },
