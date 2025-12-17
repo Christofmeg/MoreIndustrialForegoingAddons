@@ -1,177 +1,69 @@
-import net.darkhax.curseforgegradle.TaskPublishCurseForge
-
-buildscript {
+ buildscript {
     repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
+apply plugin: 'net.minecraftforge.gradle.forge'
 
-plugins {
-    id 'idea'
-    id 'net.darkhax.curseforgegradle' version '1.1.15'
-    id 'com.modrinth.minotaur' version '2.+'
-	id 'java'
-}
+version = "1.12.2-1.1.1"
+group = "com.christofmeg.mifa"
+archivesBaseName = "mifa"
 
-apply plugin: 'net.minecraftforge.gradle'
-
-archivesBaseName = "${mod_id}-forge-${forge_supported_versions}"
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' 
 
 minecraft {
-    mappings channel: 'official', version: forge_minecraft_version
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            taskName 'Client'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            mods {
-                modClientRun {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            taskName 'Server'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            mods {
-                modServerRun {
-                    source sourceSets.main
-                }
-            }
-        }
-		
-		data {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            taskName 'Data'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            args '--mod', mod_id, '--all',
-                    '--output', file('src/generated/resources/'),
-                    '--existing', file('src/main/resources/'),
-                    '--existing', file('src/generated/resources/')
-            mods {
-                modDataRun {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-        resources {
-            srcDirs = ['src/main/resources', 'src/generated/resources']
-        }
-    }
+    version = "1.12.2-14.23.5.2838"
+	mappings = "stable_39"
+    runDir = "run"
+	
+    replace "@VERSION@", "1.0"
+    replaceIn "MoreIndustrialForegoingAddons.java"
 }
 
 repositories {
-	mavenCentral()
-	maven {
-        url "https://www.cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
+    // JEI
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "http://dvs1.progwml6.com/files/maven"
     }
-	maven {
-		name = "Modrinth"
-		url = "https://api.modrinth.com/maven"
-		content {
-			includeGroup "maven.modrinth"
-
-		}
-	}
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "modmaven.k-4u.nl"
+    }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${forge_minecraft_version}-${forge_version}"
 
-    runtimeOnly fg.deobf("curse.maven:catalogue-459701:${catalogue_version}")
-    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_version}")
-    runtimeOnly fg.deobf("curse.maven:jei-238222:${jei_version}")
-    runtimeOnly fg.deobf("curse.maven:configured-457570:${configured}")
-	implementation fg.deobf("maven.modrinth:industrial-foregoing:${industrial_foregoing}")
-    implementation fg.deobf("maven.modrinth:titanium:${titanium}")
-    implementation fg.deobf("maven.modrinth:patchouli:${patchouli}")
-	
+	//Industrial Foregoing
+	compile files("dependencies/industrialforegoing-1.12.2-1.12.13-237.jar")
+    compile files("dependencies/tesla-core-lib-1.12.2-1.0.18.jar")
+    compile files("dependencies/Forgelin-1.8.4.jar")
+
+    // JEI
+	compile files("dependencies/jei_1.12.2-4.16.1.301.jar")
 }
 
 processResources {
-	def expandProps = [
-			"version": version,
-			"group": project.group, //Else we target the task's group.
-			"minecraft_version": minecraft_version,
-			"minecraft_version_range": minecraft_version_range,
-			"forge_version": forge_version,
-			"forge_version_range": forge_version_range,
-			"forge_loader_version_range": forge_loader_version_range,
-			"mod_name": mod_name,
-			"mod_author": mod_author,
-			"mod_id": mod_id,
-			"license": license,
-			"description": project.description,
-			"catalogueItemIcon": catalogueItemIcon
-	]
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
 
-	filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
-		expand expandProps
-	}
-	inputs.properties(expandProps)
-	exclude '.cache'
-}
-
-jar.finalizedBy('reobfJar')
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = 'UTF-8'
-}
-
-tasks.register('publishCurseForge', TaskPublishCurseForge) {
-    apiToken = file('../API Tokens/mifa.md')
-    def projectId = "${cf_id}".toString()
-    def mainFile = upload(projectId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
-    mainFile.changelogType = 'markdown'
-    mainFile.changelog = file('changelog.md')
-    mainFile.addGameVersion('Client', 'Server')
-    mainFile.releaseType = "${release_type}"
-    "${forge_release_versions}".split(',').each {
-        mainFile.addGameVersion("${it}")
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-    mainFile.addRequirement("industrial-foregoing")
-}
-
-modrinth {
-    def tokenText = file('../API Tokens/modrinth.md')
-    if (tokenText.exists()) {
-        token = tokenText.text
-    } else {
-        token = ""
-    }
-    projectId = "${modrinth_id}"
-    versionName = getArchivesBaseName() + "-" + getVersion()
-    versionType = "${release_type}"
-    changelog = file('changelog.md').text
-    uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
-    gameVersions = "${forge_release_versions}".split(",") as List<String>
-    dependencies {
-        required.project "industrial-foregoing"
+        
+    // copy everything else except the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
     }
 }

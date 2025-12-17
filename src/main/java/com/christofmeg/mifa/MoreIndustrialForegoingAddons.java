@@ -1,40 +1,31 @@
 package com.christofmeg.mifa;
 
-import com.christofmeg.mifa.client.ModItemModelProvider;
-import com.christofmeg.mifa.client.ModLanguageProvider;
-import com.christofmeg.mifa.common.provider.ModItemTagsProvider;
-import com.christofmeg.mifa.common.provider.ModRecipeProvider;
-import com.christofmeg.mifa.common.provider.ModSerializableProvider;
-import com.christofmeg.mifa.common.registry.ItemRegistry;
-import com.hrznstudio.titanium.module.Module;
-import com.hrznstudio.titanium.module.ModuleController;
-import net.minecraft.data.BlockTagsProvider;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(CommonConstants.MOD_ID)
-public class MoreIndustrialForegoingAddons extends ModuleController {
+@Mod(
+        modid = CommonConstants.MOD_ID,
+        name = CommonConstants.MOD_NAME,
+        version = MoreIndustrialForegoingAddons.VERSION,
+        acceptedMinecraftVersions = "[1.12, 1.13)",
+        dependencies = "required-after:forge@[14.23.5.2806,);required-after:teslacorelib@[1.0.15,);required-after:industrialforegoing@[1.12,);"
+)
+public class MoreIndustrialForegoingAddons {
 
-    private static final String[] LOCALE_CODES = new String[] { "en_us", };
+    public MoreIndustrialForegoingAddons instance;
+    public static final String VERSION = "1.1.1";
 
-    @Override
-    protected void initModules() {
-        Module.Builder core = Module.builder("addons").description("Module for More Industrial Foreging Addons");
-        new ItemRegistry().generateFeatures().forEach(core::feature);
-        addModule(core);
-    }
+    @SidedProxy(
+            clientSide = "com.christofmeg.mifa.ClientProxy",
+            serverSide = "com.christofmeg.mifa.CommonProxy"
+    )
+    private static CommonProxy proxy;
 
-    @Override
-    public void addDataProvider(GatherDataEvent event) {
-        event.getGenerator().addProvider(new ModItemModelProvider(event.getGenerator(), event.getExistingFileHelper()));
-        for (String locale : LOCALE_CODES) {
-            event.getGenerator().addProvider(new ModLanguageProvider(event.getGenerator(), locale));
-        }
-
-        BlockTagsProvider blockTags = new BlockTagsProvider(event.getGenerator(), CommonConstants.MOD_ID, event.getExistingFileHelper());
-        event.getGenerator().addProvider(new ModItemTagsProvider(event.getGenerator(), blockTags, event.getExistingFileHelper()));
-        event.getGenerator().addProvider(new ModRecipeProvider(event.getGenerator()));
-        event.getGenerator().addProvider(new ModSerializableProvider(event.getGenerator(), CommonConstants.MOD_ID));
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        instance = this;
+        proxy.preInit(event);
     }
 
 }
