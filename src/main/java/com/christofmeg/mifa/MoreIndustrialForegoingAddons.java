@@ -1,8 +1,6 @@
 package com.christofmeg.mifa;
 
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(
         modid = CommonConstants.MOD_ID,
@@ -13,19 +11,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 )
 public class MoreIndustrialForegoingAddons {
 
-    public MoreIndustrialForegoingAddons instance;
     public static final String VERSION = "1.1.1";
-
-    @SidedProxy(
-            clientSide = "com.christofmeg.mifa.ClientProxy",
-            serverSide = "com.christofmeg.mifa.CommonProxy"
-    )
-    private static CommonProxy proxy;
-
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        instance = this;
-        proxy.preInit(event);
-    }
 
 }

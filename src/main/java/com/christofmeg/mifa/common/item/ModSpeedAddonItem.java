@@ -26,18 +26,24 @@ public class ModSpeedAddonItem extends SpeedUpgrade {
     }
 
     @Override
-    public void registerRenderer() {
-        for(int i = 0; i < 12; ++i) {
-            ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(this.getRegistryName().toString() + i, "inventory"));
-        }
-
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        tooltip.add("Range: +" + (stack.getMaxStackSize() + 1));
+        double cost = 1.0 - Math.pow(0.75, tier);
+   //     tooltip.add("50% more power, but will require 25% more energy, working a total of 20% faster.");
+
+        double speedMultiplier  = Math.pow(1.2, tier);
+        double energyMultiplier = Math.pow(1.25, tier);
+        double powerMultiplier  = Math.pow(1.5, tier);
+
+        double speedPercent  = (speedMultiplier  - 1.0) * 100;
+        double energyPercent = (energyMultiplier - 1.0) * 100;
+        double powerPercent  = (powerMultiplier  - 1.0) * 100;
+
+        tooltip.add("speed: + " + speedPercent);
+        tooltip.add("energy: + " + energyPercent);
+        tooltip.add("power: + " + powerPercent);
+
     }
 
     public void createRecipe() {
