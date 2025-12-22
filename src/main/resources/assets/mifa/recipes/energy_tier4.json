@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "mifa:energy_tier4"
+  },
+  "pattern": [
+    " p ",
+    "rur",
+    "rrr"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    "p": {
+      "item": "minecraft:nether_star"
+    },
+    "u": {
+      "item": "mifa:energy_tier3"
+    }
+  }
+}

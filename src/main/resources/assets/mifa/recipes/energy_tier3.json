@@ -1,0 +1,38 @@
+{
+  "result": {
+    "item": "mifa:energy_tier3"
+  },
+  "pattern": [
+    " p ",
+    "rur",
+    "rrr"
+  ],
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "teslacorelib"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "industrialforegoing"
+        }
+      ]
+    }
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    "p": {
+      "item": "industrialforegoing:pink_slime_ingot"
+    },
+    "u": {
+      "item": "teslacorelib:energy_tier2"
+    }
+  }
+}

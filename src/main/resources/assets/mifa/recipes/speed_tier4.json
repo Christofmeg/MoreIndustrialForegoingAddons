@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "mifa:speed_tier4"
+  },
+  "pattern": [
+    "rpr",
+    "rur",
+    "rpr"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    "p": {
+      "item": "minecraft:nether_star"
+    },
+    "u": {
+      "item": "mifa:speed_tier3"
+    }
+  }
+}

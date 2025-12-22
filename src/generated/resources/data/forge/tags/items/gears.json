@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#forge:gears/iron",
-    "#forge:gears/gold",
-    "#forge:gears/diamond",
-    "#forge:gears/netherite"
-  ]
-}
