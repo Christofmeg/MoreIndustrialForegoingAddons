@@ -38,5 +38,7 @@ public class MoreIndustrialForegoingAddons {
             /*
         TODO prevent TIER 4 from being inserted until tier 3 is present
         TODO item tooltips
+        TODO speed upgrade work force
          */
+
 }
