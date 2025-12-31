@@ -3,6 +3,8 @@ package com.christofmeg.mifa;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 import net.ndrei.teslacorelib.items.BaseAddon;
+import net.ndrei.teslacorelib.items.BaseTieredAddon;
+import net.ndrei.teslacorelib.items.SpeedUpgrade;
 import net.ndrei.teslacorelib.tileentities.SidedTileEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -38,11 +40,7 @@ public class ModBaseTieredAddon extends BaseAddon {
         return 1;
     }
 
-    public final boolean isTierValid(
-            @NotNull SidedTileEntity machine,
-            int tier,
-            boolean ignoreSameTier
-    ) {
+    public final boolean isTierValid(@NotNull SidedTileEntity machine, int tier, boolean ignoreSameTier) {
         if (tier == 1) {
             return true;
         }
@@ -55,6 +53,21 @@ public class ModBaseTieredAddon extends BaseAddon {
                 ModBaseTieredAddon tieredAddon = (ModBaseTieredAddon) addon;
 
                 if (!this.hasSameFunction(tieredAddon)) {
+                    continue;
+                }
+
+                int addonTier = tieredAddon.getTier();
+
+                if (addonTier == tier) {
+                    hasSameTier = true;
+                } else {
+                    existingTiers.add(addonTier);
+                }
+            } else if (addon instanceof BaseTieredAddon) {
+                BaseTieredAddon tieredAddon = (BaseTieredAddon) addon;
+
+
+                if (!tieredAddon.hasSameFunction(tieredAddon)) {
                     continue;
                 }
 
@@ -86,15 +99,10 @@ public class ModBaseTieredAddon extends BaseAddon {
 
     @Override
     public boolean isValid(@NotNull SidedTileEntity machine) {
-        return super.isValid(machine)
-                && this.isTierValid(machine, this.getTier(), true);
+        return super.isValid(machine) && this.isTierValid(machine, this.getTier(), true);
     }
 
-    public ModBaseTieredAddon(
-            @NotNull String modId,
-            @NotNull CreativeTabs tab,
-            @NotNull String registryName
-    ) {
+    public ModBaseTieredAddon(@NotNull String modId, @NotNull CreativeTabs tab, @NotNull String registryName) {
         super(modId, tab, registryName);
     }
 }
